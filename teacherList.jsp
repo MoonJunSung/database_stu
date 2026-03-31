@@ -16,7 +16,7 @@
 	sql += "TEACHER_CODE, TEACHER_NAME, CLASS_NAME, CLASS_PRICE,";
 	sql += "SUBSTR(TEACHER_RESIST_DATE,1,4) || '년' || " ;
 	sql += "SUBSTR(TEACHER_RESIST_DATE,5,2) || '월' || " ;
-	sql += "SUBSTR(TEACHER_RESIST_DATE,7,2) || '일' AS DATE ";
+	sql += "SUBSTR(TEACHER_RESIST_DATE,7,2) || '일' AS RESIST_DATE ";
 	sql += " from TBL_TEACHER_2504";
 	PreparedStatement p = con.prepareStatement(sql);
 	ResultSet rs  = p.executeQuery();
@@ -27,7 +27,7 @@
 		<td><%=rs.getString("TEACHER_NAME") %></td>
 		<td><%=rs.getString("CLASS_NAME") %></td>
 		<td><%=rs.getString("CLASS_PRICE") %></td>
-		<td><%=rs.getString("DATE") %></td>
+		<td><%=rs.getString("RESIST_DATE") %></td>
 	</tr>
 <%
 	}//while
