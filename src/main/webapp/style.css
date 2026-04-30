@@ -1,0 +1,58 @@
+@charset "UTF-8";
+
+body{
+	margin: 0;
+	padding: 0;
+	display: flex;
+	flex-direction: column;
+	min-height: 100vh;
+}
+
+section{ /* 본문(section)이 화면(body)를 꽉채우도록 */
+	flex: 1;
+}
+
+header{
+	background-color: #a2fb84;
+	text-align: center;
+	padding: 20px 0;
+	font-size: 24px;
+	font-weight: bold;
+}
+
+nav{
+	background-color: #008000;
+	padding: 10px;
+}
+
+nav a{
+	margin: 0 10px;
+	text-decoration: none;
+	color: black;	
+}
+
+h2{
+	text-align: center;
+}
+p{
+	font-weight: bold;
+}
+footer{
+	text-align: center;
+	font-weight: bold;
+	padding: 15px;
+	background-color: #a2fb84;
+}
+
+/* 테이블 만들고 */
+table{
+	margin: 0 auto;
+	border-collapse: collapse;
+	width: 40%;
+}
+th, td{
+	border: 6px double black;
+	padding: 6px;
+	text-align: center;
+}
+
