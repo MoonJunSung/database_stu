@@ -1,7 +1,3 @@
-drop table tbl_score_202210;
-drop table tbl_subject_202210;
-drop table tbl_student_202210;
-
 create table tbl_student_202210(
 	stuid char(8) not null,
 	sname varchar2(20),
