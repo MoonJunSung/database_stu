@@ -62,6 +62,20 @@ FROM TBL_STUDENT_202210 P
 JOIN TBL_SCORE_202210 H ON H.SID = P.STUID 
 WHERE H.SUBCODE = 'A001';
 
-
+SELECT 
+    STUID AS 학번, 
+    SNAME AS 이름, 
+    SUBSTR(JUMIN, 1, 6) || '-' || SUBSTR(JUMIN, 7) AS 주민번호, 
+    DEPT_NAME AS 학과명, 
+    CASE SUBSTR(JUMIN, 7, 1) 
+        WHEN '1' THEN '남자' 
+        WHEN '3' THEN '남자' 
+        WHEN '2' THEN '여자' 
+        WHEN '4' THEN '여자' 
+    END AS 성별, 
+    PHONE AS 전화번호, 
+    EMAIL AS 이메일 
+FROM 
+    TBL_STUDENT_202210;
 
 
