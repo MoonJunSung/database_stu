@@ -1,69 +1,53 @@
+drop table tbl_score_202210;
+drop table tbl_subject_202210;
+drop table tbl_student_202210;
 
-create table tbl_cust_202301(
-	cust_no char(4) not null,
-	cust_name varchar2(14),
-	cust_tele varchar2(11),
-	primary key(cust_no)
+create table tbl_student_202210(
+	stuid char(8) not null,
+	sname varchar2(20),
+	dept_name varchar2(20),
+	jumin char(13),
+	phone char(13),
+	emaill char(30),
+	primary key(stuid)
 );
 
-insert into TBL_CUST_202301 values('1001', '박선수', '01011112222');
-insert into TBL_CUST_202301 values('1002', '백선수', '01011113333');
-insert into TBL_CUST_202301 values('1003', '채선수', '01011114444');
-insert into TBL_CUST_202301 values('1004', '임선수', '01011115555');
-insert into TBL_CUST_202301 values('1005', '한선수', '01011116666');
+insert into tbl_student_202210 values('20220011', '김한국', '사회복지과', '0301013111111', '010-1111-1111', 'hankuk@naver.com');
+insert into tbl_student_202210 values('20220012', '홍길동', '관광과', '0202013222222', '010-2222-2222', 'hongkil@naver.com');
+insert into tbl_student_202210 values('20220013', '김미자', '패션디자인과', '0203014333333', '010-3333-3333', 'kimja@naver.com');
+insert into tbl_student_202210 values('20220014', '윤한얼', '물리치료과', '0204014444444', '010-4444-4444', 'yoon@naver.com');
+insert into tbl_student_202210 values('20220015', '김성진', '모던음악과', '0205013555555', '010-5555-5555', 'kimsj@naver.com');
+insert into tbl_student_202210 values('20220016', '조민지', '건축과', '0206014666666', '010-6666-6666', 'jmg@naver.com');
 
-create table tbl_court_202301(
-	court_no char(4) not null,
-	used_flag char(1),
-	primary key(court_no)
+create table tbl_score_202210(
+	sid char(8) not null,
+	subcode char(4),
+	midscore number,
+	finalscroe number,
+	attend number,
+	report number,
+	etc number,
+	primary key(sid)
 );
 
-insert into tbl_court_202301 values('C001', 'N');
-insert into tbl_court_202301 values('C002', 'N');
-insert into tbl_court_202301 values('C003', 'N');
-insert into tbl_court_202301 values('C004', 'N');
-insert into tbl_court_202301 values('C005', 'N');
-insert into tbl_court_202301 values('C006', 'N');
-insert into tbl_court_202301 values('C007', 'N');
-insert into tbl_court_202301 values('C008', 'N');
-insert into tbl_court_202301 values('C009', 'N');
+insert into tbl_score_202210 values('20220011', 'A001', 80, 90, 100, 100, 100);
+insert into tbl_score_202210 values('20220012', 'A001', 85, 90, 90, 90, 80);
+insert into tbl_score_202210 values('20220013', 'A001', 75, 90, 80, 77, 80);
+insert into tbl_score_202210 values('20220014', 'A001', 90, 90, 100, 100, 70);
+insert into tbl_score_202210 values('20220015', 'A002', 70, 70, 80, 80, 90);
+insert into tbl_score_202210 values('20220016', 'A002', 96, 95, 100, 100, 90);
 
-create table tbl_resv_202301(
-	resv_no char(8) not null,
-	resv_date char(8),
-	court_no char(4),
-	cust_no char(4),
-	primary key(resv_no)
+create table tbl_subject_202210(
+	subcode char(4) not null,
+	subname varchar2(30),
+	proname varchar2(20),
+	primary key(subcode)
 );
 
-insert into tbl_resv_202301 values('20230001', '20230101', 'C001', '1005');
-insert into tbl_resv_202301 values('20230002', '20230101', 'C002', '1004');
-insert into tbl_resv_202301 values('20230003', '20230101', 'C003', '1003');
-insert into tbl_resv_202301 values('20230004', '20230101', 'C004', '1002');
-insert into tbl_resv_202301 values('20230005', '20230101', 'C005', '1001');
+insert into tbl_subject_202210 values('A001', '자바', '정명석');
+insert into tbl_subject_202210 values('A002', 'C언어', '김미숙');
+insert into tbl_subject_202210 values('A003', '데이터베이스', '서길동');
+insert into tbl_subject_202210 values('A004', '웹프로그래밍', '이건원');
+insert into tbl_subject_202210 values('A005', '영어', '박태민');
 
-
-
-
-
-
-select
-	c.cust_no,
-	a.cust_name,
-	TO_CHAR(TO_DATE(c.resv_date, 'YYYYMMDD'), 'YYYY"년 "MM"월" DD"일"') as resv_date,
-	c.court_no
-from tbl_resv_202301 c
-join TBL_CUST_202301 a on c.cust_no = a.cust_no
-where c.cust_no = '1001';
-
-
-
-select
-	c.cust_no,
-	a.cust_name,
-	count(c.cust_no) as cnt_resv
-from tbl_resv_202301 c
-join tbl_cust_202301 a on a.cust_no = c.cust_no
-group by c.cust_no, a.cust_name	
-order by c.cust_no asc;
-```
+commit;
