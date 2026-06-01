@@ -4,18 +4,18 @@
 <html>
 <head>
 	<meta charset="UTF-8">
-	<title>배드민턴 코트예약 관리프로그램</title>
+	<title>학생 성적처리 프로그램</title>
 	<link rel="stylesheet" href="style.css">
 </head>
 <body>
 	<header>
-		(과정평가형 정보처리산업기사) 배드민턴 코트예약 관리프로그램 ver 2023-01
+		(과정평가형 정보처리산업기사)학생 성적처리 프로그램 ver 2022-10
 	</header>
 	<nav>
-		<a href="courtResv.jsp">코트예약</a>
-		<a href="courtList.jsp">코트예약조회</a>
-		<a href="usedList.jsp">사용일수조회</a>
+		<a href="menu1.jsp">학생현황</a>
+		<a href="menu2.jsp">성적입력</a>
+		<a href="menu3.jsp">성적현황</a>
+		<a href="menu4.jsp">과목별성적</a>
 		<a href="index.jsp">홈으로</a>
 	</nav>
 	<section>
-	
